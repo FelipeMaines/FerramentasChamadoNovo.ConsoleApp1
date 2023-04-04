@@ -11,18 +11,31 @@ namespace FerramentaeChamados.ConsoleApp1
 
     internal class GerenciadorDeChamados
     {
-        static ArrayList nomesChamado = new ArrayList();
-        static ArrayList descricaoChamado = new ArrayList();
-        static ArrayList equipamento = new ArrayList();
-        static ArrayList datasChamado = new ArrayList();
-        static ArrayList idChamado = new ArrayList();
-        static ArrayList diasTotais = new ArrayList();
+        public static ArrayList nomesChamado = new ArrayList();
+        public static ArrayList descricaoChamado = new ArrayList();
+        public static ArrayList equipamento = new ArrayList();
+        public static ArrayList datasChamado = new ArrayList();
+        public static ArrayList idChamado = new ArrayList();
+        public static ArrayList diasTotais = new ArrayList();
         
 
 
         public static void adicionarChamado()
         {
             Console.Clear();
+
+            bool temFerramenta = Program.VerificarSeAhFerramentas();
+
+            if (!temFerramenta)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Nenhum Equipamento registrado");
+                Console.WriteLine("Aperte qualquer tecla para continuar");
+                Console.ResetColor();
+                Console.ReadLine();
+                Console.Clear();
+                return;
+            }
 
             Console.Write("\nQual o nome do chamado: ");
             nomesChamado.Add(Console.ReadLine());
@@ -78,9 +91,39 @@ namespace FerramentaeChamados.ConsoleApp1
 
         }
 
+        public static void VerSeAhChamado()
+        {
+            bool temChamdo = Program.VerificarSeAhChamados();
+
+            if (!temChamdo)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Nenhum chamado adicionado!");
+                Console.WriteLine("Aperte algo para continuar");
+                Console.ResetColor();
+                Console.ReadLine();
+                Console.Clear();
+                return;
+            }
+            
+        }
+
         public static void editarChamado()
         {
             Console.Clear();
+
+            bool temChamdo = Program.VerificarSeAhChamados();
+
+            if (!temChamdo)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Nenhum chamado adicionado!");
+                Console.WriteLine("Aperte algo para continuar");
+                Console.ResetColor();
+                Console.ReadLine();
+                Console.Clear();
+                return;
+            }
 
             Console.WriteLine("Qual o id do chamado que necessita edicao: ");
             int idTroca = int.Parse(Console.ReadLine());
@@ -105,13 +148,24 @@ namespace FerramentaeChamados.ConsoleApp1
         {
             Console.Clear();
 
+            bool temChamdo = Program.VerificarSeAhChamados();
+
+            if (!temChamdo)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Nenhum chamado adicionado!");
+                Console.WriteLine("Aperte algo para continuar");
+                Console.ResetColor();
+                Console.ReadLine();
+                Console.Clear();
+                return;
+            }
+
             mostrarChamados();
             Console.WriteLine();
 
-
             Console.WriteLine("Qual o id do chamado que necessita ser excluido: ");
             int idexcluir = int.Parse(Console.ReadLine());
-
             int excluir = idChamado.IndexOf(idexcluir);
 
             nomesChamado.RemoveAt(excluir);
@@ -125,6 +179,21 @@ namespace FerramentaeChamados.ConsoleApp1
         {
 
             Console.Clear();
+
+            bool temChamdo = Program.VerificarSeAhChamados();
+
+            if (!temChamdo)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Nenhum chamado adicionado!");
+                Console.WriteLine("Aperte algo para continuar");
+                Console.ResetColor();
+                Console.ReadLine();
+                Console.Clear();
+                return;
+            }
+
+
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("{0,-20} | {1,-20} | {2,-20} | {3,-20} | {4, -10} | {5,-10}", "Nome", "descricaoChamado", "equipamento", "datasChamado", "diasTotais", "ID");
             Console.ResetColor();

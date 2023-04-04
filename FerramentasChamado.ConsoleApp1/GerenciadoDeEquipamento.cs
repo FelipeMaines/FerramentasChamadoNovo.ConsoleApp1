@@ -83,6 +83,19 @@ namespace FerramentaeChamados.ConsoleApp1
             Console.Clear();
             GerenciadoDeEquipamento.mostrarFerramentas();
 
+            bool temChamado = Program.VerificarSeAhFerramentas();
+
+            if (!temChamado)
+            {
+                Console.ForegroundColor= ConsoleColor.DarkYellow;
+                Console.WriteLine("Nenhum Equipamento registrado");
+                Console.WriteLine("Aperte qualquer tecla para continuar");
+                Console.ResetColor();
+                Console.ReadLine();
+                Console.Clear();
+                return;
+            }
+
             Console.Write("Qual o id da ferramenta deseja editar: ");
             int editarFerramentaNumero = int.Parse(Console.ReadLine());
 
@@ -125,6 +138,20 @@ namespace FerramentaeChamados.ConsoleApp1
         public static void excluirFerramenta()
         {
             Console.Clear();
+
+            bool temChamado = Program.VerificarSeAhFerramentas();
+
+            if (!temChamado)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Nenhum Equipamento registrado");
+                Console.WriteLine("Aperte qualquer tecla para continuar");
+                Console.ResetColor();
+                Console.ReadLine();
+                Console.Clear();
+                return;
+            }
+
             GerenciadoDeEquipamento.mostrarFerramentas();
 
             Console.Write("Qual o id da ferramenta deseja excluir: ");
@@ -142,7 +169,6 @@ namespace FerramentaeChamados.ConsoleApp1
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Ferramenta excluida com sucesso!");
             Console.ResetColor();
-
             Console.ReadLine();
             Console.Clear();
 
@@ -150,6 +176,19 @@ namespace FerramentaeChamados.ConsoleApp1
 
         public static void mostrarFerramentas()
         {
+
+            bool temChamado = Program.VerificarSeAhFerramentas();
+
+            if (!temChamado)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Nenhum Equipamento registrado");
+                Console.WriteLine("Aperte qualquer tecla para continuar");
+                Console.ResetColor();
+                Console.ReadLine();
+                Console.Clear();
+                return;
+            }
 
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;

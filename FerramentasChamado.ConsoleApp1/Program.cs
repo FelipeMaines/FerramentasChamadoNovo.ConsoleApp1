@@ -102,6 +102,30 @@ namespace FerramentaeChamados.ConsoleApp1
                 }
             } while (numero != 0);
         }
+        public static bool VerificarSeAhFerramentas()
+        {
+            bool temFerramenta = true;
+
+            if (GerenciadoDeEquipamento.ids.Count == 0)
+            {
+                temFerramenta = false;
+                
+            }
+
+            return temFerramenta;
+        }
+
+        public static bool VerificarSeAhChamados()
+        {
+            bool temChamado = true;
+
+            if(GerenciadorDeChamados.nomesChamado.Count == 0)
+            {
+                temChamado = false;
+            }
+
+            return temChamado;
+        }
         static void Main(string[] args)
         {
             MostrarMenuPrincipal();
