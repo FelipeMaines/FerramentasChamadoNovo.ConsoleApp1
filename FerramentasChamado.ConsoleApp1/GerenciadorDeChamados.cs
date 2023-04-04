@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace FerramentaeChamados.ConsoleApp1
         static ArrayList datasChamado = new ArrayList();
         static ArrayList idChamado = new ArrayList();
         static ArrayList diasTotais = new ArrayList();
+        
 
 
         public static void adicionarChamado()
@@ -25,18 +27,35 @@ namespace FerramentaeChamados.ConsoleApp1
             Console.Write("\nQual o nome do chamado: ");
             nomesChamado.Add(Console.ReadLine());
 
+            Console.Clear();
+
             Console.Write("\nQual a descricao do chamado: ");
             descricaoChamado.Add(Console.ReadLine());
 
-            Console.Write("\nQual o equipamento necessitando um chamado: ");
-            equipamento.Add(Console.ReadLine());
+            Console.Clear();
+
+            GerenciadoDeEquipamento.mostrarFerramentas();
+
+            Console.Write("\nQual o id do equipamento necessitando um chamado: \n");
+
+            int idTroca = int.Parse(Console.ReadLine());
+
+            int indexTroca = GerenciadoDeEquipamento.ids.IndexOf(idTroca);
+
+            equipamento.Add(GerenciadoDeEquipamento.nomes[indexTroca]);
+
+            Console.Clear();
 
             Console.Write("\nQual a data do chamado: ");
             datasChamado.Add(Console.ReadLine());
 
             idChamado.Add(idChamado.Count);
 
-            Console.WriteLine();
+            Console.Clear();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Chamado adicionado com sucesso!");
+            Console.ResetColor();
         }
 
         public static void PegarQuantiadedeDeDiasAberto()
@@ -104,22 +123,6 @@ namespace FerramentaeChamados.ConsoleApp1
 
         public static void mostrarChamados()
         {
-            //Console.WriteLine("|       nomes        |       descricao       |       equipamento        |     datasChamado    |     id / totalDias   |");
-            //Console.WriteLine("|--------------------|--------------------|--------------------|--------------------|--------------------|");
-
-            //int count = nomesChamado.Count;
-
-            //for (int i = 0; i < count; i++)
-            //{
-            //    Console.WriteLine($"{nomesChamado[i],14}{descricaoChamado[i],18}{equipamento[i],20}{datasChamado[i],20}{idChamado[i],20}{diasTotais[i],20}");
-            //}
-
-            //for (int j = 0; j < 10 - count; j++)
-            //{
-            //    Console.WriteLine("|                    |                    |                    |                    |                    |                    |");
-            //}
-
-            //Console.WriteLine("\n");
 
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
@@ -136,6 +139,9 @@ namespace FerramentaeChamados.ConsoleApp1
             Console.ResetColor();
 
             Console.WriteLine("\n\n\n");
+
+            Console.ReadLine();
+            Console.Clear();
 
 
         }

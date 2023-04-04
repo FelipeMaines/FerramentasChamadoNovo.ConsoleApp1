@@ -44,6 +44,7 @@ namespace FerramentaeChamados.ConsoleApp1
 
             do
             {
+                
                 Console.WriteLine($"(1) Adicionar Ferramenta\n(2) Editar Ferramenta\n(3) Excluir Ferramenta\n(4) Mostrar Ferramenta\n(0)Para sair!");
                 numero = int.Parse(Console.ReadLine());
 
@@ -75,6 +76,7 @@ namespace FerramentaeChamados.ConsoleApp1
 
             do
             {
+                
                 Console.WriteLine($"(1) Adicionar Chamado\n(2) Mostrar Chamados\n(3) Editar Chamados\n(4) Excluir Chamados\n(0)Para sair!");
                 numero = int.Parse(Console.ReadLine());
 

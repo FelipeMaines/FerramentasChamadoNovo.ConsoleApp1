@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace FerramentaeChamados.ConsoleApp1
 {
-    internal class GerenciadoDeEquipamento
+    public class GerenciadoDeEquipamento
     {
 
-        static ArrayList nomes = new ArrayList();
-        static ArrayList precos = new ArrayList();
-        static ArrayList ids = new ArrayList();
-        static ArrayList datas = new ArrayList();
-        static ArrayList fabricantes = new ArrayList();
+        public static ArrayList nomes = new ArrayList();
+        public static ArrayList precos = new ArrayList();
+        public static ArrayList ids = new ArrayList();
+        public static ArrayList datas = new ArrayList();
+        public static ArrayList fabricantes = new ArrayList();
 
 
         public static void PegarInformacoesFerramenta()
@@ -51,6 +51,15 @@ namespace FerramentaeChamados.ConsoleApp1
 
             Console.WriteLine("Qual o fabricante: ");
             fabricantes.Add(Console.ReadLine());
+
+
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Ferramenta adicionada com sucesso!");
+            Console.ResetColor();
+
+            Console.ReadLine();
+            Console.Clear();
 
 
             //nomes.Add("Ferro");
@@ -105,8 +114,12 @@ namespace FerramentaeChamados.ConsoleApp1
             Console.Write("\nQual o nome do fabricante: ");
             fabricantes[NumeroTrocar] = Console.ReadLine();
 
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Ferramenta editada com sucesso!");
+            Console.ResetColor();
 
-
+            Console.ReadLine();
+            Console.Clear();
         }
 
         public static void excluirFerramenta()
@@ -125,27 +138,18 @@ namespace FerramentaeChamados.ConsoleApp1
             datas.RemoveAt(excluir);
             fabricantes.RemoveAt(excluir);
 
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Ferramenta excluida com sucesso!");
+            Console.ResetColor();
+
+            Console.ReadLine();
+            Console.Clear();
+
         }
 
         public static void mostrarFerramentas()
         {
-
-            //Console.WriteLine("|       nomes        |       precos       |       datas        |     fabricantes    |          id        |");
-            //Console.WriteLine("|--------------------|--------------------|--------------------|--------------------|--------------------|");
-
-            //int count = nomes.Count;
-
-            //for (int i = 0; i < count; i++)
-            //{
-            //    Console.WriteLine($"{nomes[i],14}{precos[i],18}{datas[i],20}{fabricantes[i],20}{ids[i],20}");
-            //}
-
-            //for (int j = 0; j < 10 - count; j++)
-            //{
-            //    Console.WriteLine("|                    |                    |                    |                    |                    |");
-            //}
-
-            //Console.WriteLine("\n");
 
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
